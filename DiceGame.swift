@@ -6,7 +6,7 @@
 //  Version 1.0
 //  Copyright (c) 2024 Kevin Csiffary. All rights reserved.
 //
-//  Change me.
+//  Dice Guessing Game.
 
 import Foundation
 
@@ -21,18 +21,16 @@ func main() {
 
     var randNum = 0
 
-    
-
     // Tell the user what the program does.
     print("This program is a guessing game, guess until you get the right answer!")
-    
+
     repeat {
         // Increments guess counter
         guessCounter += 1
 
         // Calculate random number.
         randNum = Int.random(in:1..<7)
-        
+
         // Setup try catch
         do {
             // Get user input.
@@ -41,12 +39,11 @@ func main() {
                 throw InputError.nonNumber
             }
 
-
             // Cast the input to an integer.
             guard let guessInt = Int(guessString) else {
                 throw InputError.nonNumber
             }
-            
+
             // Checks if the guess is in the range
             if (1 <= guessInt && guessInt <= 6) {
                 if randNum == guessInt {
@@ -59,17 +56,17 @@ func main() {
             } else {
                 print("NO guess a number between 1 and 6!")
             }
-            
+
             print("\nWould you like to try again?")
             print("Enter q to quit")
             guard let userQuit = readLine() else {
                 throw InputError.nonNumber
             }
-            
+
             if userQuit == "q" {
                 break
             }
-            
+
         } catch {
             print("Please enter a proper number!")
             guessCounter -= 1

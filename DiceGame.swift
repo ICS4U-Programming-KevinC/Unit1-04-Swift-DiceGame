@@ -29,7 +29,7 @@ func main() {
         guessCounter += 1
 
         // Calculate random number.
-        randNum = Int.random(in:1..<7)
+        randNum = Int.random(in: 1..<7)
 
         // Setup try catch
         do {
@@ -45,7 +45,7 @@ func main() {
             }
 
             // Checks if the guess is in the range
-            if (1 <= guessInt && guessInt <= 6) {
+            if 1 <= guessInt && guessInt <= 6 {
                 if randNum == guessInt {
                     print("Congratulations! You guessed correctly. :)")
                     print("It took you \(guessCounter) trie(s) to get it right!")
